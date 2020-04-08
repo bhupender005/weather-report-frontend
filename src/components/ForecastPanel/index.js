@@ -21,12 +21,13 @@ const style = {
 
 const ForecastPanel = props => {
     const { forecasts, current_observation } = props.data;
-    const { condition: { temperature, text } } = current_observation;
+    const { condition: { temperature, text, code } } = current_observation;
 
     return (
         <div style={style.container}>
             <div>
                 <div>Today's temperature is: {temperature}&#8451;</div>
+                <img alt="img" src={`http://l.yimg.com/a/i/us/we/52/${code}.gif`} />
                 <div>{text}</div>
             </div>
             <div style={style.forecastBottomPanel}>

@@ -9,7 +9,9 @@ const WeatherForecastDisplay = () => {
 
     useEffect(() => {
         if(city) {
-            setForecast(fetchWeatherForCity(city));
+            fetchWeatherForCity(city).then(response => {
+                setForecast(response);
+            });
         }
     }, [city]);
 

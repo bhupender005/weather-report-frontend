@@ -3,7 +3,11 @@ import { useDispatch } from 'react-redux'
 import CustomSelect from './components/CustomSelect';
 import { Button } from '@material-ui/core';
 
-const cities = ['New York', 'Los Angeles', 'Denver'].map( value => ({value, label: value}));
+const cities = [
+    {value:'New York, NY', label: 'New York'}, 
+    {value:'Los Angeles, LA', label: 'Los Angeles'}, 
+    {value:'Denver, DE', label: 'Denver'},
+];
 
 const WeatherForecast = () => {
     const dispatch = useDispatch();

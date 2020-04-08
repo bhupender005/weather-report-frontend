@@ -69,8 +69,22 @@ const dummyResponse = {
 	}]
 }
 
-const fetchWeatherForCity = city => dummyResponse;
+const fetchWeatherForCityDummy = city => dummyResponse;
+
+const fetchWeatherForCity = city => new Promise(resolve => {
+	fetch('http://localhost:3030/getForcastFor', {
+		method: 'post',
+		headers: {
+			Accept: 'application/json, text/plain, */*',
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify({city})
+	  }).then(function(response) {
+		resolve(response.json());
+	  });
+});
 
 export {
-    fetchWeatherForCity,
+	fetchWeatherForCity,
+	fetchWeatherForCityDummy
 }
